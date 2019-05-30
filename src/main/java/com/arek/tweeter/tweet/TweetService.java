@@ -9,21 +9,26 @@ import java.util.List;
 @AllArgsConstructor
 public class TweetService {
 
-	private TweetDao tweetDao;
+//	private TweetDao tweetDao;
+	private TweetRepository tweetRepository;
 
 	public List<Tweet> getTweetsFromUserId(Long id){
-		return tweetDao.getTweetsByUserId(id);
+		return tweetRepository.getTweetsByUser_Id(id);
+//		return tweetDao.getTweetsByUserId(id);
 	}
 
-	public List<Tweet> getTweetsBeggningWithString(String string){
-		return tweetDao.getTweetsBeginningWith(string);
+	public List<Tweet> getTweetsBeginningWithString(String string){
+		return tweetRepository.getTweetsByTweetTextStartsWith(string);
+//		return tweetDao.getTweetsBeginningWith(string);
 	}
 
-	public List<Tweet> getAllTweets() {
-		return tweetDao.getAllTweets();
+	List<Tweet> getAllTweets() {
+		return tweetRepository.findAll();
+//		return tweetDao.getAllTweets();
 	}
 
-	public void addTweet(Tweet tweet) {
-		tweetDao.addTweet(tweet);
+	void addTweet(Tweet tweet) {
+		tweetRepository.save(tweet);
+//		tweetDao.addTweet(tweet);
 	}
 }

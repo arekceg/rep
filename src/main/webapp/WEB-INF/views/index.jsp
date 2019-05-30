@@ -12,13 +12,15 @@
     <title>HOME</title>
 </head>
 <body>
-<a href="/user/1/tweets/">User 1 Tweets</a>
+<a href="/user/3/tweets/">User 3 Tweets</a>
 <br><br>
 <a href="/user/search-tweets/program">Find tweets beggining with "program"</a>
 <br><br>
 <a href="/user/add">Add user</a>
 <br><br>
 <a href="/tweet/add">Add tweet</a>
+<br><br>
+<a href="/user/all">All users</a>
 
 <c:import url="elements/footer.jsp"/>
 </body>

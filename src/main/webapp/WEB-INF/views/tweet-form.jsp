@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: arek
@@ -20,7 +21,7 @@
     <br> <form:errors path="tweetText"/>
     <br><br>
     User: <form:select path="user.id" items="${users}" itemLabel="fullName" itemValue="id"/>
-<%--    <br> <form:errors path="user"/>--%>
+    <br> <form:errors path="user"/>
     <br><br>
     <input type="submit" value="submit"/>
 </form:form>

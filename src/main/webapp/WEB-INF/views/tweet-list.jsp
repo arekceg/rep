@@ -18,6 +18,7 @@
         <td>Created</td>
         <td>Title</td>
         <td>Tweet</td>
+        <td>User</td>
     </tr>
     <c:forEach items="${tweets}" var="tweet">
         <tr>
@@ -25,6 +26,7 @@
             <td>${tweet.created}</td>
             <td>${tweet.title}</td>
             <td>${tweet.tweetText}</td>
+            <td>${tweet.user.fullName}</td>
         </tr>
     </c:forEach>
 </table>

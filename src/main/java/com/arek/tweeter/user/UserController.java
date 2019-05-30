@@ -42,8 +42,21 @@ public class UserController {
 	@GetMapping("search-tweets/{string}")
 	public String searchTweets(@PathVariable String string,
 	                           Model model) {
-		model.addAttribute("tweets", tweetService.getTweetsBeggningWithString(string));
+		model.addAttribute("tweets", tweetService.getTweetsBeginningWithString(string));
 		return "tweet-list";
+	}
+
+	@GetMapping("edit/{id}")
+	public String getUserForEditing(@PathVariable Long id,
+	                                Model model){
+		model.addAttribute("user",userService.getUserById(id));
+		return "user-form";
+	}
+
+	@GetMapping("delete/{id}")
+	public String deleteUser(@PathVariable Long id){
+		userService.deleteUserById(id);
+		return "redirect:/user/all/";
 	}
 
 	// == post mappings ==
@@ -55,6 +68,16 @@ public class UserController {
 			return "user-form";
 		}
 		userService.addUser(user);
+		return "redirect:/user/all";
+	}
+
+	@PostMapping("edit/{id}")
+	public String editUser(@ModelAttribute @Valid User user,
+	                              BindingResult result) {
+		if (result.hasErrors()) {
+			return "user-form";
+		}
+		userService.updateUser(user);
 		return "redirect:/user/all";
 	}
 }

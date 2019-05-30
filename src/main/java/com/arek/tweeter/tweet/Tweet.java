@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -25,16 +24,16 @@ public class Tweet {
 	private String title;
 
 	@NonNull
-    @Size(max = 160)
+	@Size(max = 160)
 	private String tweetText;
 
 	private LocalDate created;
 
-	@PrePersist
-	public void prePersist(){
-		created = LocalDate.now();
-	}
-
 	@ManyToOne
 	private User user;
+
+	@PrePersist
+	public void prePersist() {
+		created = LocalDate.now();
+	}
 }

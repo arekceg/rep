@@ -26,7 +26,7 @@ public class User {
 	@Email
 	private String email;
 
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany
 	private List<Tweet> tweets;
 
 	@Transient

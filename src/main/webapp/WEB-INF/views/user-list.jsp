@@ -17,12 +17,16 @@
         <td>First Name</td>
         <td>Last Name</td>
         <td>Email</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
     <c:forEach items="${users}" var="user">
         <tr>
             <td>${user.fistName}</td>
             <td>${user.lastName}</td>
             <td>${user.email}</td>
+            <td><a href="/user/edit/${user.id}">Edit</a> </td>
+            <td><a href="/user/delete/${user.id}">Delete</a> </td>
         </tr>
     </c:forEach>
 </table>
